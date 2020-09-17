@@ -1,0 +1,357 @@
+// http://ionicframework.com/docs/v2/theming/
+.pagina-activa
+{
+	background-color: map-get($colors, custom-menu-one);
+	color: map-get($colors, light);
+}
+.border-none
+{
+border-top: 0px!important;
+border-left: 0px!important;
+border-right: 0px!important;
+border-bottom: 0px!important;
+}
+.background-color-custom-primary-one
+{
+	background-color: map-get($colors, custom-primary-one);
+	color: map-get($colors, light);
+}
+.toast-button .button-inner
+{
+  color: white!important;
+  text-shadow: 0 0 2px black;
+}
+.toast-error-message .toast-wrapper
+{
+  background-color: map-get($colors, custom-danger-one);
+  color: white;
+}
+.custom-danger-one-theme
+{
+  color: white!important;
+  background-color: map-get($colors, custom-danger-one)!important;
+
+}
+
+button.primary-custom
+{
+  color: white!important;
+  background-color: map-get($colors, custom-primary-one)!important;
+}
+button.secondary
+{
+  color: white!important;
+  background-color: map-get($colors, custom-danger-one)!important;
+}
+.no-scroll .scroll-content
+{
+     overflow: hidden;
+}
+
+.header-md::after
+{
+	background-color: white!important;
+	height: 2%!important;
+}
+button.back-button
+{
+  color: map-get($colors, custom-danger-one)!important;
+}
+.card-background-page
+{
+
+  ion-card
+  {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title
+  {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle
+  {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-padding.item.item-block.item-md {
+  padding: 0 !important;
+}
+
+.list-md {
+  margin: -1px 0 0 0 !important;
+}
+
+.label-md {
+  margin: 13px 8px 5px 0 !important;
+}
+
+.vertical-align-content > * {
+     display: flex!important;
+     align-content: center!important;
+     align-items: center!important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.margin-5 {
+  margin: 5px !important;
+}
+
+.padding-5 {
+  padding: 5px !important;
+}
+
+.button-costo {
+  margin: 10px 0 10px 0;
+}
+
+.item-costo {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.ion-table-row {
+  // text-align: center !important;
+  font-size: 12px;
+  // display: flex!important;
+  // align-content: center!important;
+  // align-items: center!important;
+}
+
+.ion-table-col {
+  // text-align: center !important;
+  border: 1px solid #d3d3d3;
+  display: flex!important;
+  align-content: center!important;
+  align-items: center!important;
+}
+
+.ion-btn-table {
+  height: 25px !important;
+  padding: 15px !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.text-align-right {
+  text-align: right !important;
+}
+
+.text-align-left {
+  text-align: left !important;
+}
+
+.icon-danger {
+  color: map-get($colors, danger)!important;
+}
+
+.ion-table-header {
+  background-color: map-get($colors, custom-primary-one)!important;
+  color: white !important;
+}
+
+.ion-table-header-light {
+  background-color: #d3d3d3 !important;
+  font-weight: bold;
+  // color: black !important;
+}
+
+.ion-button-full-width {
+  width: 100%;
+}
+
+.h6-margin {
+  margin-top:0.3rem !important;
+  margin-bottom:0.5rem !important;
+}
+
+.ion-custom-icon {
+  vertical-align: middle !important;
+  width: 28px !important;
+  height: auto;
+  margin-top: -2px;
+}
+
+.ion-list-icon {
+  width: 28px !important;
+  height: auto;
+}
+
+.ion-edit-icon {
+  margin-top: 3px !important;
+}
+
+.ion-edit-icon.inner-right {
+  margin-right: 0 !important;
+}
+
+.ion-edit-icon.inner-right .button-inner
+{
+  justify-content: flex-end;
+}
+
+.item-sidebar.item.item-block.item-md {
+  background-color: 0 !important;
+}
+
+.no-padding.item.item-divider.item-md.item-divider-md {
+  padding: 0 !important;
+}
+
+.margin-divider {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.border-none.item.item-block.item-md .item-inner {
+  border-bottom: none !important;
+}
+
+.ion-list-title {
+  font-weight: bold !important;
+  font-size: 18px !important;
+  color: map-get($colors, custom-primary-one) !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.list-title-primary {
+  color: map-get($colors, custom-primary-one) !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+
+.border-top {
+  border-top: 3px solid map-get($colors, custom-primary-one) !important;
+}
+
+.ion-list-item {
+  font-size: 14px;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.item-color-light {
+  background-color: map-get($colors, custom-light-one) !important;
+}
+
+.item-color-white {
+  background-color: white !important;
+}
+
+.card-custom .card.card-md {
+  margin: 5px 10px 5px 10px !important;
+  border-top: 3px solid map-get($colors, custom-primary-one) !important;
+}
+
+.ion-img-center {
+  display: block !important;
+  margin: auto !important;
+}
+
+.no-margin-no-padding {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shrink-button {
+  height: auto !important;
+}
+
+/*
+* IMPORTANT! DEFAULT CSS CHANGES
+ */
+.toolbar-title {
+  margin-top: 0.9rem !important;
+}
+
+.label-md {
+  margin: 5px 8px 5px 0 !important;
+}
+
+.item-md {
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+.item-md.item-block .item-inner {
+  padding-right: 0 !important;
+}
+
+.label-md {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.sidebar-item-button-text-left .item-inner {
+    border-bottom: none !important;
+}
+
+.sidebar-item-button-text-left .label.label-md {
+  //margin-left: 2rem !important;
+	  text-align: left !important;
+
+}
+
+.sidebar-item-button-text-left{
+	border-style: solid;
+	border-left-width: 5px;
+	border-left-color: map-get($colors, custom-primary-one);
+}
+
+.menu-selected {
+	border-left-color: map-get($colors, custom-danger-one);
+}
+
+.submenu{
+	border-left-color: map-get($colors, custom-menu-one);
+}
+
+.button-clear-md {
+  color: map-get($colors, custom-primary-one) !important;
+}
+
+.submenu > div > div > .label {
+	padding-left: 20px;
+	color: map-get($colors, custom-submenu-text);
+}
+
+.submenu-selected > div > div > .label {
+	color: #FFF;
+}
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.

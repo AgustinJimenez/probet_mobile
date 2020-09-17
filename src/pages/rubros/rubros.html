@@ -1,0 +1,36 @@
+<ion-header>
+  <master titulo="Rubros"></master>
+</ion-header>
+
+<ion-content class="item-color-light">
+    <ion-item-group ion-item class="border-none no-padding" *ngFor="let categoria_rubros of categorias_rubros; let i=index " >
+
+	    <ion-item-divider class="border-none" color="custom-primary-one" (click)="toggle_lista('indice-'+i)" [ngClass]="{active: is_showing_lista('indice-'+i)}">
+	    	<h2 color="white"><strong>{{ categoria_rubros.numero }}. {{ categoria_rubros.nombre }}</strong></h2>
+	    	<ion-icon name="ios-arrow-dropright-circle-outline" item-end color="custom-danger-one" [name]="is_showing_lista('indice-'+i) ? 'ios-arrow-dropdown-circle-outline' : 'ios-arrow-dropleft-circle-outline'">
+
+	    	</ion-icon>
+	    </ion-item-divider>
+
+	    <ion-list *ngIf="is_showing_lista('indice-'+i)" class="border-none">
+		    <ion-item *ngFor="let rubro of categoria_rubros.rubros;" class="border-none no-padding" text-wrap>
+		    	<ion-grid class="no-padding">
+			    	<ion-row class="no-padding vertical-align-content">
+	                  <ion-col col-6>
+	                    {{ rubro.nombre }} ({{ rubro.unidad_medida }})
+	                  </ion-col>
+                    <ion-col col-3>
+	                    {{ rubro.precio_unitario }}
+	                  </ion-col>
+	                  <ion-col col-3>
+	                    <button ion-button small clear item-end class="primary-custom" id="categoria-{{categoria_rubros.id}} rubro-{{rubro.id}}" (click)="rubro_composicion( rubro )">
+	                      Detalle
+	                    </button>
+	                  </ion-col>
+	                </ion-row>
+                </ion-grid>
+		    </ion-item>
+		</ion-list>
+
+	</ion-item-group>
+</ion-content>

@@ -1,0 +1,66 @@
+========================================SDK-UBUNTU========================================
+Setup for Ubuntu
+
+download Android Studio or SDK only
+install
+set PATH
+In my case Android and its SDK was installed by default under:
+
+/root/Android/Sdk
+Open terminal and edit ~/.bashrc
+
+sudo nano ~/.bashrc
+
+export ANDROID_HOME=/root/Android/Sdk
+PATH=$PATH:$ANDROID_HOME/tools
+PATH=$PATH:$ANDROID_HOME/platform-tools
+
+To refresh your PATH run
+
+source ~/.bashrc
+======================================================================================
+
+===============================GRADLE-UBUNTU=========================================
+Step 1: Update the System
+
+Before installing any packages on your Ubuntu server instance, it is recommended to update the system. 
+Login using the sudo user and run the following commands to update the system.
+
+sudo apt-get update
+sudo apt-get -y upgrade
+Step 2: Install JDK
+
+Gradle requires Java Development Kit (JDK) 7 or higher in order to work. In this tutorial we will be installing JDK 8. 
+Run the following command to install JDK 8 on your server.
+
+sudo apt-get -y install openjdk-8-jdk wget unzip
+The above command will also install wget and unzip. Verify the installation.
+
+java -version
+You will see the following output.
+
+openjdk version "1.8.0_121"
+OpenJDK Runtime Environment (build 1.8.0_121-8u121-b13-0ubuntu1.16.10.2-b13)
+OpenJDK 64-Bit Server VM (build 25.121-b13, mixed mode)
+Step 3: Download Gradle
+
+Gradle distribution archive comes in two types: "binary-only" and "complete". The "binary-only" archive contains the Gradle software only wheres "complete" archive comes with binary, documentation and source.
+ Run the following command to download Gradle to your system.
+
+wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
+You can always check the Gradle release page to look for the link to the latest version of Gradle.
+
+Step 4: Install Gradle
+
+Create a directory for the Gradle installation.
+
+sudo mkdir /opt/gradle
+Extract the downloaded archive to the newly created directory.
+
+sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
+Configure the PATH environment variable so that the gradle executable can be directly executed anywhere on the system.
+
+export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
+You can run the following command to check if the Gradle install was successful.
+
+gradle -v

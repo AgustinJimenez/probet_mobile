@@ -1,0 +1,39 @@
+<ion-header>
+  <master titulo="Crear Presupuesto"></master>
+</ion-header>
+
+<ion-content padding class="item-color-light">
+
+	<form (ngSubmit)="on_submit()">
+		<ion-item item-left>
+		  <ion-label stacked>Fecha</ion-label>
+		  <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="presupuesto.fecha" [(ngModel)]="myDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+		</ion-item>
+
+    <ion-item item-left>
+      <ion-label stacked>Nombre</ion-label>
+      <ion-input #input id="nombre" type="text" [(ngModel)]="presupuesto.nombre" [ngModelOptions]="{standalone: true}" [attr.maxlength]="499"></ion-input>
+    </ion-item>
+
+    <ion-item item-left>
+      <ion-label stacked>Cliente</ion-label>
+      <ion-input id="cliente" type="text" [(ngModel)]="presupuesto.cliente" [ngModelOptions]="{standalone: true}" [attr.maxlength]="499"></ion-input>
+    </ion-item>
+
+    <ion-item item-left>
+      <ion-label stacked>Observación</ion-label>
+      <ion-textarea id="observacion" [(ngModel)]="presupuesto.observacion" [ngModelOptions]="{standalone: true}" [attr.maxlength]="499"></ion-textarea>
+    </ion-item>
+
+    <ion-item item-left style="padding-bottom: 5px !important;">
+    	<ion-label stacked>Beneficio</ion-label>
+	    <ion-input id="margen" type="number" maxlength="10" [(ngModel)]="presupuesto.margen" [ngModelOptions]="{standalone: true}"></ion-input>
+	  </ion-item>
+    <br>
+
+    <button id="submit-btn" ion-button type="submit" color="custom-primary-one" block>GUARDAR</button>
+  </form>
+
+  <button ion-button color="custom-danger-one" block (click)="go_back()">CANCELAR</button>
+
+</ion-content>

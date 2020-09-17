@@ -1,0 +1,22 @@
+<ion-header>
+  <master titulo="Proveedores y Contratistas"></master>
+</ion-header>
+
+
+<ion-content padding class="item-color-light">
+
+	<ion-searchbar
+		[(ngModel)]="search_terms"
+		[showCancelButton]="shouldShowCancel"
+		(ionCancel)="onCancel($event)"
+		(search)="search_proveedores($event)" placeholder="Buscar por nombre"
+		#input>
+	</ion-searchbar>
+
+    <ion-list>
+        <ion-item *ngFor="let proveedor of proveedores" (click)="go_to_proveedor_detalles(proveedor)">
+            {{ proveedor.nombre }} <ion-icon name="arrow-forward" color="custom-danger-one" item-right></ion-icon>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

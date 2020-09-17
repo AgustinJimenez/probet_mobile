@@ -1,0 +1,23 @@
+<ion-list>
+	<img src="{{ imagen }}">
+
+	<ion-item text-center>
+		<h1 class="card-title">{{ nombre }}</h1>
+	</ion-item>
+
+	<ion-card-content>
+		<p (click)="open_location(latitud, longitud)">{{ direccion }}</p>
+	</ion-card-content>
+
+	<ion-card-content>
+		<a href="tel:{{ nro_telefono }}">{{ nro_telefono }}</a>
+	</ion-card-content>
+    
+    <ion-card-content>
+    	<p (click)="open_email(email)">{{ email }}</p>
+	</ion-card-content>
+
+	<ion-card-content>
+		<p (click)="open_web_site(direccion_web)">{{ direccion_web }}</p>
+	</ion-card-content>
+</ion-list>

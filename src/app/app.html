@@ -1,0 +1,39 @@
+<ion-menu [content]="content" color="custom-primary-one">
+  <ion-header>
+    <ion-toolbar color="custom-primary-one">
+      <ion-title align="left"><img src="assets/img/logo_construapp_naranja.png" class="ion-custom-icon"> CONSTRUAPP</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="background-color-custom-primary-one no-scroll text-center">
+    <ion-list >
+      <ion-card-header color="custom-light-two" align="center">
+        <!--JHOON DOE-->
+      </ion-card-header>
+      <div *ngFor="let p of pages; let i = index">
+        <button class="sidebar-item-button-text-left" color="custom-primary-one" menuClose ion-item  [class.menu-selected]="check_cual_pagina_activa(p)" (click)="openPage(p)" *ngIf="p.sub_menu_of_page < 0 && p.has_sub_menu == false; else hassubmenu">
+          <img src="assets/img/{{p.image}}" class="ion-custom-icon">
+          &nbsp;&nbsp;{{p.title}}
+        </button>
+        <ng-template #hassubmenu>
+          <button class="sidebar-item-button-text-left" color="custom-primary-one" ion-item  [class.menu-selected]="check_cual_pagina_activa(p)" *ngIf="p.sub_menu_of_page < 0 && p.has_sub_menu == true; else issubmenu">
+            <img src="assets/img/{{p.image}}" class="ion-custom-icon">
+            &nbsp;&nbsp;{{p.title}}
+            <img src="assets/img/arrow-down.png" class="ion-custom-icon" *ngIf="p.has_sub_menu == true">
+          </button>
+        </ng-template>
+        <ng-template #issubmenu>
+          <button class="sidebar-item-button-text-left submenu" color="custom-menu-one" menuClose ion-item  [class.submenu-selected]="check_cual_pagina_activa(p)" (click)="openPage(p)" style="padding-left:100px;" *ngIf="p.sub_menu_of_page > 0 && p.has_sub_menu == false">
+            <img src="assets/img/{{p.image}}" class="ion-custom-icon">
+            {{p.title}}
+          </button>
+        </ng-template>
+    </div>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+</ion-nav>

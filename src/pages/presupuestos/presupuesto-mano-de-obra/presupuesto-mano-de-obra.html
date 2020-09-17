@@ -1,0 +1,42 @@
+<ion-header>
+  <master titulo="Mano de obra"></master>
+</ion-header>
+
+<ion-content padding class="item-color-light">
+      	<ion-list class="item-color-light"t>
+			<ion-item class="no-padding item-color-light" text-wrap>
+				<ion-grid class="item-color-white">
+					<ion-row class="ion-table-row ion-table-header">
+						<ion-col class="ion-table-col" col-4>RUBRO</ion-col>
+						<ion-col class="ion-table-col" col-4>MANO DE OBRA</ion-col>
+						<ion-col class="ion-table-col" col-4>P. TOTAL.</ion-col>
+					</ion-row>
+					<ng-container *ngFor="let categoria of categorias">
+						<ion-row class="ion-table-row ion-table-header-light">
+							<ion-col class="ion-table-col" col-12>{{ categoria.nombre }}</ion-col>
+						</ion-row>
+						<ng-container *ngFor="let rubro of rubros">
+							<ng-container *ngIf="rubro.categoria_id == categoria.id_servidor">
+								<ion-row class="ion-table-row">
+									<ion-col class="ion-table-col" col-4>
+										{{ rubro.rubro_nombre }} ({{ rubro.rubro_unidad_de_medida }})
+									</ion-col>
+									<ion-col class="ion-table-col" col-4>
+										<button ion-button class="primary-custom ion-btn-table ion-button-full-width" (click)="rubro_mano_de_obra_prompt( rubro )">
+											{{ rubro.rubro_precio_mano_de_obra | number:'1.0-0' }}
+										</button>
+									</ion-col>
+									<ion-col class="ion-table-col" col-4>{{ get_total_rubro(rubro) | number:'1.0-0' }}</ion-col>
+								</ion-row>
+							</ng-container>
+						</ng-container>
+					</ng-container>
+					<ion-row>
+				      <ion-item-divider color="custom-primary-one" class="margin-divider" style="font-size: 16px !important; font-weight: bold;">
+				        Total: {{ get_total(rubros) | number:'1.0-0' }}
+				      </ion-item-divider>
+				    </ion-row>
+				</ion-grid>
+			</ion-item>
+		</ion-list>
+</ion-content>

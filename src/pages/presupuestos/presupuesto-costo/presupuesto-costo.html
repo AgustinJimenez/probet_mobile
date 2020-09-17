@@ -1,0 +1,106 @@
+<ion-header>
+  <master titulo="Costo"></master>
+</ion-header>
+
+<ion-content class="item-color-light">
+  <ion-list class="item-color-light">
+    <ion-item class="border-none" text-wrap>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <ion-row class="ion-list-title">
+              {{ presupuesto.nombre }}
+            </ion-row>
+            <ion-row class="ion-list-item">
+              <p>Cliente: {{ presupuesto.cliente }}</p>
+            </ion-row>
+            <ion-row class="ion-list-item">
+              <p>Fecha: {{ presupuesto.fecha | date: 'dd/MM/yyyy' }}</p>
+            </ion-row>
+            <ion-row class="ion-list-item">
+              <p>Observación: {{ presupuesto.observacion }}</p>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <img src="assets/img/materiales-primary.png" class="ion-list-icon ion-img-center" (click)="go_to_presupuesto_materiales()">
+            <button ion-button clear class="ion-button-full-width no-margin-no-padding shrink-button" (click)="go_to_presupuesto_materiales()" style="font-size: 12px !important;">
+              <!-- Costo Materiales -->
+              Costo de <br>
+              Materiales
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <img src="assets/img/mano-de-obra.png" class="ion-list-icon ion-img-center" (click)="go_to_presupuesto_mano_de_obra()">
+            <button ion-button clear class="ion-button-full-width no-margin-no-padding shrink-button" (click)="go_to_presupuesto_mano_de_obra()" style="font-size: 12px !important;">
+              Costo de <br>
+              Mano de Obra
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <img src="assets/img/add-rubro.png" class="ion-list-icon ion-img-center" (click)="go_to_presupuesto_seleccion_rubro()">
+            <button ion-button clear class="ion-button-full-width no-margin-no-padding shrink-button" (click)="go_to_presupuesto_seleccion_rubro()" style="font-size: 12px !important;">
+              Agregar <br>
+              Rubro
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <hr>
+
+  <div *ngFor="let categoria of categorias; let i=index ">
+      <ion-col col-12>
+        <ion-item-divider (click)="toggle_lista('indice-'+i)" [ngClass]="{active: is_showing_lista('indice-'+i)}" class="border-none list-title-primary border-top">
+          {{ categoria.numero }}. {{ categoria.nombre }}
+          <ion-icon name="ios-arrow-dropright-circle-outline" item-end color="custom-danger-one" [name]="is_showing_lista('indice-'+i) ? 'ios-arrow-dropdown-circle-outline' : 'ios-arrow-dropleft-circle-outline'"></ion-icon>
+        </ion-item-divider>
+        <ion-item-divider class="border-none">
+          Subtotal: {{ get_total_categoria(categoria, rubros) | number: '1.0-0' }}
+        </ion-item-divider>
+      </ion-col>
+    <ng-container *ngIf="is_showing_lista('indice-'+i)">
+  	<ion-list *ngFor="let rubro of rubros" class="border-none">
+		  <ion-item *ngIf="rubro.categoria_id == categoria.id_servidor" class="border-none" text-wrap>
+    		<ion-row>
+          <ion-col col-12>
+    			 <h2><strong>{{ categoria.numero }}.{{ rubro.index }} {{ rubro.rubro_nombre }}</strong></h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+      	   <ion-grid class="no-padding">
+						<ion-row class="ion-table-row ion-table-header">
+							<ion-col class="ion-table-col" col-2>UND</ion-col>
+							<ion-col class="ion-table-col" col-2>CANT.</ion-col>
+							<ion-col class="ion-table-col" col-3>P.UNIT.</ion-col>
+							<ion-col class="ion-table-col" col-3>P.TOTAL</ion-col>
+              <ion-col class="ion-table-col" col-2></ion-col>
+						</ion-row>
+						<ion-row class="ion-table-row">
+							<ion-col class="ion-table-col" col-2>{{ rubro.rubro_unidad_de_medida }}</ion-col>
+							<ion-col class="ion-table-col" col-2>
+                <button ion-button class="primary-custom ion-btn-table ion-button-full-width" (click)="rubro_cantidad_prompt( rubro )">{{ rubro.cantidad }}</button>
+              </ion-col>
+							<ion-col class="ion-table-col" col-3>{{ rubro.precio_unitario_costo | number:'1.0-0' }}</ion-col>
+							<ion-col class="ion-table-col" col-3>{{ get_precio_total(rubro) | number:'1.0-0' }}</ion-col>
+              <ion-col class="ion-table-col" col-2>
+                <ion-icon name="trash" class="icon-danger" (click)="delete_rubro( rubro )" style="zoom:2.0;"></ion-icon>
+              </ion-col>
+						</ion-row>
+					</ion-grid>
+    	</ion-row>
+		</ion-item>
+	</ion-list>
+  </ng-container>
+  </div>
+  <div>
+    <ion-row>
+      <ion-item-divider color="custom-primary-one" class="margin-divider" style="font-size: 16px !important; font-weight: bold;">
+        Total: {{ get_total(rubros) | number:'1.0-0' }}
+      </ion-item-divider>
+    </ion-row>
+  </div>
+</ion-content>

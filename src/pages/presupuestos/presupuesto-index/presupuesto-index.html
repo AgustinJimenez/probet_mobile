@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="custom-primary-one" >
+    <button ion-button  menuToggle>
+      <ion-icon name="menu" color="custom-danger-one" ></ion-icon>
+    </button>
+
+  <button ion-button clear style="float: right !important;" (click)="go_to_create_presupuesto()">
+    <ion-icon name="add" color="custom-danger-one" style="font-size: 2.4rem;"></ion-icon>
+  </button>
+
+  <ion-title>Presupuestos</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card padding card-custom item-color-light">
+	<ion-list>
+    <ion-item  *ngFor="let presupuesto of presupuestos" class="border-none item-color-light">
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+              <ion-row class="ion-list-title">
+                {{ presupuesto.nombre }}
+              </ion-row>
+              <ion-row class="ion-list-item">
+                <p>Cliente: {{ presupuesto.cliente }}</p>
+              </ion-row>
+              <ion-row class="ion-list-item">
+                <p>Fecha: {{ presupuesto.fecha | date: 'dd/MM/yyyy' }}</p>
+              </ion-row>
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <button ion-button icon-left clear item-end class="ion-button-full-width ion-edit-icon inner-right" (click)="go_to_presupuesto_editar(presupuesto)">
+                  <img src="assets/img/edit.png" class="ion-list-icon">
+                </button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <img src="assets/img/oferta.png" class="ion-list-icon ion-img-center" (click)="go_to_presupuesto_oferta(presupuesto)">
+              <button ion-button clear class="ion-button-full-width no-margin-no-padding shrink-button" (click)="go_to_presupuesto_oferta(presupuesto)">
+                OFERTA
+              </button>
+            </ion-col>
+            <ion-col col-6>
+              <img src="assets/img/costo.png" class="ion-list-icon ion-img-center" (click)="go_to_presupuesto_costo(presupuesto)">
+              <button ion-button clear class="ion-button-full-width no-margin-no-padding shrink-button" (click)="go_to_presupuesto_costo(presupuesto)">
+                COSTO
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

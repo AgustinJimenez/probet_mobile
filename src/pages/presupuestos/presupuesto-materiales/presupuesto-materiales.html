@@ -1,0 +1,35 @@
+<ion-header>
+  <master titulo="Materiales"></master>
+</ion-header>
+
+<ion-content padding class="item-color-light">
+      	<ion-list class="item-color-light">
+			<ion-item class="no-padding item-color-light" text-wrap>
+				<ion-grid class="item-color-white">
+					<ion-row class="ion-table-row ion-table-header">
+						<ion-col class="ion-table-col" col-3>MATERIAL</ion-col>
+						<ion-col class="ion-table-col" col-3>CANT.</ion-col>
+						<ion-col class="ion-table-col" col-3>P. UNIT.</ion-col>
+						<ion-col class="ion-table-col" col-3>P. TOTAL.</ion-col>
+					</ion-row>
+					<ng-container *ngFor="let material of materiales">
+						<ion-row class="ion-table-row">
+							<ion-col class="ion-table-col" col-3>{{ material.material_nombre }} ({{ material.unidad_de_medida }})</ion-col>
+							<ion-col class="ion-table-col" col-3>{{ material.cantidad_total | number: '1.0-2' }}</ion-col>
+							<ion-col class="ion-table-col" col-3>
+								<button ion-button class="primary-custom ion-btn-table ion-button-full-width" (click)="material_precio_prompt( material )">
+									{{ material.precio_unitario | number: '1.0-0' }}
+								</button>
+							</ion-col>
+							<ion-col class="ion-table-col" col-3>{{ get_precio_total(material) | number:'1.0-0' }}</ion-col>
+						</ion-row>
+					</ng-container>
+					<ion-row>
+				      <ion-item-divider color="custom-primary-one" class="margin-divider" style="font-size: 16px !important; font-weight: bold;">
+				        Total: {{ get_total(materiales) | number: '1.0-0' }}
+				      </ion-item-divider>
+				    </ion-row>
+				</ion-grid>
+			</ion-item>
+		</ion-list>
+</ion-content>

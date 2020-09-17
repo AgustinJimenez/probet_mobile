@@ -1,0 +1,30 @@
+page-inicio {
+
+  ion-content .fixed-content{
+    background: map-get($colors, custom-background-inicio);
+  }
+
+  .toolbar {
+    .toolbar-background {
+      //background: map-get($colors, custom-background-inicio);
+    }
+  }
+
+  .button-inicio {
+    width: 100%;
+    //background:rgba(0,0,0,0.3);
+    background: map-get($colors, custom-background-inicio);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .col-inicio{
+    text-align: center;
+    padding: 1px;
+  }
+
+  .inicio-text {
+    color: #FFF;
+  }
+
+}

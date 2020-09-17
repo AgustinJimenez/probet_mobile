@@ -1,0 +1,52 @@
+<ion-header>
+  <master titulo="Composición del rubro"></master>
+</ion-header>
+
+<ion-content class="item-color-light">
+  	<ion-list class="item-color-light">
+		<ion-item class="no-padding item-color-light" text-wrap>
+			<ion-grid class="item-color-white">
+				<ion-row style="padding-top: 5px; padding-bottom: 5px;">
+					<ion-col col-12>
+						<ion-row class="ion-list-item">
+							<p><strong>Rubro: </strong>{{ rubro.nombre }}</p>
+						</ion-row>
+						<ion-row class="ion-list-item">
+							<p><strong>Unidad de medida: </strong>{{ rubro.unidad_medida }}</p>
+						</ion-row>
+						<ion-row class="ion-list-item">
+							<p><strong>Precio mano de obra: </strong>{{ rubro.precio_mano_de_obra | number:0 }}</p>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+				<ion-row class="ion-table-row ion-table-header">
+					<ion-col class="ion-table-col" col-4>MAT.</ion-col>
+					<ion-col class="ion-table-col" col-2>CANT</ion-col>
+					<ion-col class="ion-table-col" col-3>P. U.</ion-col>
+					<ion-col class="ion-table-col" col-3>P. T.</ion-col>
+				</ion-row>
+				<ng-container *ngFor="let material of rubro.rubro_materiales">
+					<ion-row class="ion-table-row">
+						<ion-col class="ion-table-col" col-4>
+							{{ material.material.nombre }} ({{ material.material.unidad_medida }})
+						</ion-col>
+						<ion-col class="ion-table-col" col-2>
+							{{ material.cantidad | number:'1.0-2' }}
+						</ion-col>
+						<ion-col class="ion-table-col" col-3>
+							{{ material.material.precio_unitario | number:'1.0-0' }}
+						</ion-col>
+						<ion-col class="ion-table-col" col-3>
+							{{ get_material_total( material ) | number:'1.0-0' }}
+						</ion-col>
+					</ion-row>
+				</ng-container>
+				<ion-row>
+			      <ion-item-divider color="custom-primary-one" class="margin-divider" style="font-size: 16px !important; font-weight: bold;">
+			        Total: {{ get_total(rubro) | number: '1.0-0' }}
+			      </ion-item-divider>
+			    </ion-row>
+			</ion-grid>
+		</ion-item>
+	</ion-list>
+</ion-content>

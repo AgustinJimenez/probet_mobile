@@ -1,0 +1,35 @@
+<ion-header>
+
+  <master titulo="{{ proveedor.nombre }}"></master>
+
+</ion-header>
+
+<ion-content padding class="item-color-light">
+		<ion-card padding>
+    		<img src="{{ proveedor.imagen_url }}" width="100%" height="250px">
+
+    		<ion-item text-center text-wrap>
+    			<h1 class="card-title">{{ proveedor.nombre }}</h1>
+			</ion-item>
+
+			<button ion-item text-wrap item-center (click)="open_location(proveedor.latitud, proveedor.longitud)">
+				<ion-icon name="ios-pin"  item-start color="custom-primary-one"></ion-icon>
+				<p>{{ proveedor.direccion }}</p>
+			</button>
+
+			<a ion-item item-center href="tel:{{ proveedor.nro_telefono }}">
+				<ion-icon name="call"  item-start color="custom-primary-one"></ion-icon>
+				<p>{{ proveedor.nro_telefono }}</p>
+			</a>
+		    
+		    <button ion-item text-wrap item-center (click)="open_email(proveedor.email)">
+				<ion-icon name="mail"  item-start color="custom-primary-one"></ion-icon>
+		    	<p>{{ proveedor.email }}</p>
+			</button>
+
+			<button ion-item text-wrap item-center (click)="open_web_site(proveedor.direccion_web)">
+				<ion-icon name="ios-globe"  item-start color="custom-primary-one"></ion-icon>
+				<p>{{ proveedor.direccion_web }}</p>
+			</button>
+		</ion-card>
+</ion-content>
